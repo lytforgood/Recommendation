@@ -1,7 +1,7 @@
 <!-- [TOC]  -->
 
-##1、精简版的特征、模型与结果
-###1）最少需要保留那些处理方法和特征，才能保证结果在90%以上？
+## 1、精简版的特征、模型与结果
+### 1）最少需要保留那些处理方法和特征，才能保证结果在90%以上？
 ```
 第一种模型
 f11
@@ -169,43 +169,45 @@ ub维度
 最早一次交互/购买距离预测日前一天的时间间隔
 最早与最晚交互的时间差 
 ```
-###2）最重要的模型是哪个？
+### 2）最重要的模型是哪个？
 u与ui模型都很重要
 
-##2、可运行的代码：
+## 2、可运行的代码：
 备注:用到R,会消耗很多内存,内存不要太小,需要修改文件里的目录
-###1）训练（模型生成）部分
+### 1）训练（模型生成）部分
 原始数据需要放入三份 part01 part02 part03 原始数据的使用三部分各自独立
+
 第一部分part01：
-原始数据放在'part01/new_data/'目录下
-运行顺序：
-encod_data.py
-chunk_data.py
-get_train_data.py
-get_test_data.py
-xgb_out_f1.py
-get_train_data_f2.py
-get_test_f2.py
-xgb_out_f2.py
+- 原始数据放在'part01/new_data/'目录下
+- 运行顺序：
+- encod_data.py
+- chunk_data.py
+- get_train_data.py
+- get_test_data.py
+- xgb_out_f1.py
+- get_train_data_f2.py
+- get_test_f2.py
+- xgb_out_f2.py
+
 第二部分part02：
-原始数据放在'part02/'目录下
-scala文件注意修改里面的输入输出路径(最后那个目录必须为文件里面显示的那个目录)
-R需要修改工作目录
-运行顺序：
-JDDateFormat01.scala
-JDDateFormat02.scala
-JDDateFormat03.scala
-File01.R
-JDDateTest31.scala
-JDDateTest41.scala
-JDDateTest42.scala
-JDDateTest43.scala
-JDDateTest51.scala
-File02.R
-Step01.R
-Step02.R
-Step03.py
-Step04.R
+- 原始数据放在'part02/'目录下
+- scala文件注意修改里面的输入输出路径(最后那个目录必须为文件里面显示的那个目录)
+- R需要修改工作目录
+- 运行顺序：
+- JDDateFormat01.scala
+- JDDateFormat02.scala
+- JDDateFormat03.scala
+- File01.R
+- JDDateTest31.scala
+- JDDateTest41.scala
+- JDDateTest42.scala
+- JDDateTest43.scala
+- JDDateTest51.scala
+- File02.R
+- Step01.R
+- Step02.R
+- Step03.py
+- Step04.R
 
 第三部分part03：
 原始数据放在'part02/wepon/data'目录下
@@ -225,17 +227,17 @@ gen_us_data.py gen_u_data.py 这两个文件需要分别替换变量运行3次(�
 - 运行`we_all`文件夹下的`gen_top832user.py`得到`832user_0.2965.csv`文件，里面用到了各个队员的预测文件
 
 第四部分part04：
-Step01.R
-Step02.R
+- Step01.R
+- Step02.R
 
-注: 产出文件校对 目录下为每个part产出的最终结果,每步全一致就可以得到完整的最终结果。
+- 注: 产出文件校对 目录下为每个part产出的最终结果,每步全一致就可以得到完整的最终结果。
 
 A. 必要注释。
-原始数据应该放在工作目录下
-R:setwd()修改工作目录
-python: path对应工作目录
+- 原始数据应该放在工作目录下
+- R:setwd()修改工作目录
+- python: path对应工作目录
 
-###2）预测部分（为了测试选手结果的真实性，请提供可编译/运行的预测代码）
+### 2）预测部分（为了测试选手结果的真实性，请提供可编译/运行的预测代码）
 A. 输入：原始数据，处理后数据或提取的特征；
 part01:cate8_alluser.csv cate8_f2_800.csv
 part02:us_2162.csv us_2916.csv us_test_all.csv user_test.csv
