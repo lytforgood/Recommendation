@@ -1,3 +1,3 @@
 # Recommendation
 
-说明藏在项目中
+由于某些原因,说明藏在part04目录中
